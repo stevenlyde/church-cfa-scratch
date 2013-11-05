@@ -1,0 +1,36 @@
+(define xCenter (/ worldWidth 2))
+(define (getWidth worldObj) (first (third (first worldObj))))
+(define (getHeight worldObj) (second (third (first worldObj))))
+(define (getX worldObj) (first (second worldObj)))
+(define (getY worldObj) (second (second worldObj)))
+
+(define ground (list (list "rect" #t (list worldWidth 10))
+                     (list (/ worldWidth 2) worldHeight)))
+
+(define (dim) (uniform 10 50))
+
+(define (xpos prevBlock)
+  (define prevW (getWidth prevBlock))
+  (define prevX (getX prevBlock))
+  (uniform (- prevX prevW) (+ prevX prevW)))
+
+(define (ypos prevBlock h)
+  (define prevY (getY prevBlock))
+  (define prevH (getHeight prevBlock))
+  (- prevY prevH h))
+
+(define (addBlock prevBlock first?)
+  (define w (dim))
+  (define h (dim))
+  (list (list "rect" #f (list w h))
+        (list (if first? xCenter (xpos prevBlock)) (ypos prevBlock h))))
+
+(define (makeTowerWorld)
+  (define firstBlock (addBlock ground #t))
+  (define secondBlock (addBlock firstBlock #f))
+  (define thirdBlock (addBlock secondBlock #f))
+  (define fourthBlock (addBlock thirdBlock #f))
+  (define fifthBlock (addBlock fourthBlock #f))
+  (list ground firstBlock secondBlock thirdBlock fourthBlock fifthBlock))
+
+(animatePhysics 1000 (makeTowerWorld))

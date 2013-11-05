@@ -1,0 +1,6 @@
+(define lung-cancer (flip 0.01))
+(define cold (flip 0.2))
+
+(define cough (or cold lung-cancer))
+
+cough

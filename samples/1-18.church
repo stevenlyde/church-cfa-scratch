@@ -1,0 +1,6 @@
+(define (geometric p)
+  (if (flip p)
+      0
+      (+ 1 (geometric p))))
+
+(hist (repeat 1000 (lambda () (geometric 0.6))) "Geometric of 0.6")

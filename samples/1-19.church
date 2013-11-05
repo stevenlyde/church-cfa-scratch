@@ -1,0 +1,6 @@
+(define (eye-color person) (uniform-draw '(blue green brown)))
+
+(list
+ (eye-color 'bob)
+ (eye-color 'alice)
+ (eye-color 'bob) )

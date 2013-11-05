@@ -1,0 +1,3 @@
+(define A (flip))
+(define B (flip (if A 0.3 0.7)))
+(list A B)

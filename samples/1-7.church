@@ -1,0 +1,3 @@
+(define trick-coin (lambda () (if (flip 0.95) 'h 't)))
+
+(hist (repeat 20 trick-coin) "trick coin")

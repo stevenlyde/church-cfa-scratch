@@ -1,0 +1,3 @@
+(define (random-pair) (list (flip) (flip)))
+
+(hist (repeat 1000 random-pair) "return values")

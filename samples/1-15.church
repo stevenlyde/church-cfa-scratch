@@ -1,0 +1,4 @@
+(define A (flip))
+(define B (flip))
+(define C (list A B))
+C

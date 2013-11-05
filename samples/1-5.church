@@ -1,0 +1,3 @@
+(define noisy-double (lambda (x) (if (flip) x (+ x x))))
+
+(noisy-double 3)

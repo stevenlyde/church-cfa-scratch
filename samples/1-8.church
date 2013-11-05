@@ -1,0 +1,9 @@
+(define (make-coin weight) (lambda () (if (flip weight) 'h 't)))
+(define fair-coin (make-coin 0.5))
+(define trick-coin (make-coin 0.95))
+(define bent-coin (make-coin 0.25))
+
+(multiviz
+ (hist (repeat 20 fair-coin) "20 fair coin flips")
+ (hist (repeat 20 trick-coin) "20 trick coin flips")
+ (hist (repeat 20 bent-coin) "20 bent coin flips") )

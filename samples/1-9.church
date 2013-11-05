@@ -1,0 +1,10 @@
+(define (make-coin weight) (lambda () (if (flip weight) 'h 't)))
+(define (bend coin)
+  (lambda () (if (equal? (coin) 'h)
+                 ( (make-coin 0.7) )
+                 ( (make-coin 0.1) ) )))
+
+(define fair-coin (make-coin 0.5))
+(define bent-coin (bend fair-coin))
+
+(hist (repeat 100 bent-coin) "bent coin")

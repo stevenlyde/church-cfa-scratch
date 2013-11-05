@@ -1,0 +1,5 @@
+(define make-coin (lambda (weight) (lambda () (flip weight))))
+(define coin (make-coin 0.8))
+
+(define data (repeat 1000 (lambda () (sum (map (lambda (x) (if x 1 0)) (repeat 10 coin))))))
+(hist data  "Distribution of coin flips")

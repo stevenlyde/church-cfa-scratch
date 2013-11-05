@@ -1,0 +1,3 @@
+(define flip-n (mem (lambda (n) (flip))))
+(list (list (flip-n 1) (flip-n 12) (flip-n 47) (flip-n 1548))
+      (list (flip-n 1) (flip-n 12) (flip-n 47) (flip-n 1548)))

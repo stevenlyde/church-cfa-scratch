@@ -1,0 +1,1 @@
+(hist (repeat 1000 flip) "Flips")
